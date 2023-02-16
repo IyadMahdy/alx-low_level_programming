@@ -2,7 +2,7 @@
 
 /**
  * main - Starting point of program
- * Return 0 if succesful and any other number otherwise
+ * Return: 0 if succesful and any other number otherwise
  */
 int main(void)
 {
