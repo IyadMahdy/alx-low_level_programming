@@ -13,10 +13,10 @@ int main(void)
 		num4 = 0;
 		while (num4 <= 9)
 		{
-			num1 = 0;
+			num1 = num3 + 1;
 			while (num1 <= 9)
 			{
-				num2 = 0;
+				num2 = num4 + 1;
 				while (num2 <= 9)
 				{
 					if (num1 != 0 || num2 != 0)
