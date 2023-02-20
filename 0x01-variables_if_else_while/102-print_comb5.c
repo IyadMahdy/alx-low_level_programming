@@ -17,21 +17,21 @@ int main(void)
 			num1 = num3;
 			while (num1 <= 9)
 			{
-				num2 = num4;
+				if (num1 == num3)
+					num2 = num4+1;
+				else
+					num2 = 0;
 				while (num2 <= 9)
 				{
-					if (num1 != num3 || num2 != num4)
+					putchar('0' + num3);
+					putchar('0' + num4);
+					putchar(' ');
+					putchar('0' + num1);
+					putchar('0' + num2);
+					if (num1 != 9 || num2 != 9 || num3 != 9 || num4 != 8)
 					{
-						putchar('0' + num3);
-						putchar('0' + num4);
+						putchar(',');
 						putchar(' ');
-						putchar('0' + num1);
-						putchar('0' + num2);
-						if (num1 != 9 || num2 != 9 || num3 != 9 || num4 != 8)
-						{
-							putchar(',');
-							putchar(' ');
-						}
 					}
 					num2++;
 				}
@@ -42,6 +42,5 @@ int main(void)
 		num3++;
 	}
 	putchar('\n');
-
 	return (0);
 }
