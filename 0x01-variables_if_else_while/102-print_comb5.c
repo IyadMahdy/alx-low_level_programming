@@ -18,7 +18,7 @@ int main(void)
 			while (num1 <= 9)
 			{
 				if (num1 == num3)
-					num2 = num4+1;
+					num2 = num4 + 1;
 				else
 					num2 = 0;
 				while (num2 <= 9)
