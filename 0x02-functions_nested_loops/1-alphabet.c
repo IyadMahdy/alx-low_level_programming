@@ -1,9 +1,8 @@
 #include "main.h"
 /**
- * main - Print Alphabet
- * Return: 0
+ * print_alphabet - Print Alphabet
  */
-int main(void)
+void print_alphabet(void)
 {
 	char c = 'a';
 
@@ -12,6 +11,4 @@ int main(void)
 		_putchar(c);
 	}
 	_putchar('\n');
-
-	return (0);
 }
