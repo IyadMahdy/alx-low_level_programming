@@ -8,11 +8,11 @@
  */
 int _abs(int n)
 {
-	int abs;
+	int absolute;
 
 	if (n < 0)
-		abs = -1 * n;
+		absolute = -1 * n;
 	else
-		abs = n;
-	return (abs);
+		absolute = n;
+	return (absolute);
 }
