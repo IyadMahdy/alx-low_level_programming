@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _islower - Checks for Alphabetical Character
+ * _isalpha - Checks for Alphabetical Character
  * @c: character to be checked
  *
  * Return: 1 if @c is alphabetical character 0 otherwise
  */
-int _islower(int c)
+int _isalpha(int c)
 {
 	char character = c;
 
