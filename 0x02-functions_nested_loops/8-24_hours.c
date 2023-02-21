@@ -21,7 +21,9 @@ void jack_bauer(void)
 				while (minutes2 <= 9)
 				{
 					if (hours1 == 2 && hours2 == 4)
+					{
 						return;
+					}
 					_putchar(hours1 + '0');
 					_putchar(hours2 + '0');
 					_putchar(':');
