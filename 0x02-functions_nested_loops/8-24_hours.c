@@ -21,11 +21,11 @@ void jack_bauer(void)
 				{
 					if (hours1 == 2 && hours2 == 4)
 						return;
-					_putchar(hours1);
-					_putchar(hours2);
+					_putchar(hours1 + '0');
+					_putchar(hours2 + '0');
 					_putchar(':');
-					_putchar(minutes1);
-					_putchar(minutes2);
+					_putchar(minutes1 + '0');
+					_putchar(minutes2 + '0');
 					_putchar('\n');
 					minutes2++;
 				}
