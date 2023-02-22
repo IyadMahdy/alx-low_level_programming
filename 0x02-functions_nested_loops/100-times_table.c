@@ -20,7 +20,7 @@ void print_times_table(int n)
 	{
 		for (j = 0; j <= n; j++)
 		{
-			num3 = (i * j) / 100
+			num3 = (i * j) / 100;
 			num1 = (i * j) / 10;
 			num2 = (i * j) % 10;
 
@@ -35,13 +35,15 @@ void print_times_table(int n)
 			}
 
 			else if (j == n)
-			{
-				if ((i * j) < 100)
-				{	
+			{	
+				_putchar(' ');
+				if ((i * j) < 10)
+				{
 					_putchar(' ');
-					if ((i * j) < 10)
-						_putchar(' ');
+					_putchar(' ');
 				}
+				else if ((i * j) >= 10 && (i * j) < 100)
+					_putchar(' ');
 				if (num3 != 0)
 					_putchar('0' + num3);
 				if (num1 != 0)
@@ -51,12 +53,14 @@ void print_times_table(int n)
 
 			else
 			{
-				if ((i * j) < 100)
+				_putchar(' ');
+				if ((i * j) < 10)
 				{
 					_putchar(' ');
-					if ((i * j) < 10)
-						_putchar(' ');
+					_putchar(' ');
 				}
+				else if ((i * j) >= 10 && (i * j) < 100)
+					_putchar(' ');
 				if (num3 != 0)
 					_putchar('0' + num3);
 				if (num1 != 0)
