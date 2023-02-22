@@ -30,7 +30,7 @@ void print_times_table(int n)
 			{
 				if (num3 != 0)
 					_putchar('0' + num3);
-				if (num1 != 0)
+				if (num1 != 0 || num3 != 0)
 					_putchar('0' + num1);
 				_putchar('0' + num2);
 				_putchar(',');
@@ -48,7 +48,7 @@ void print_times_table(int n)
 					_putchar(' ');
 				if (num3 != 0)
 					_putchar('0' + num3);
-				if (num1 != 0)
+				if (num1 != 0 || num3 != 0)
 					_putchar('0' + num1);
 				_putchar('0' + num2);
 			}
@@ -65,7 +65,7 @@ void print_times_table(int n)
 					_putchar(' ');
 				if (num3 != 0)
 					_putchar('0' + num3);
-				if (num1 != 0)
+				if (num1 != 0 || num3 != 0)
 					_putchar('0' + num1);
 				_putchar('0' + num2);
 				_putchar(',');
