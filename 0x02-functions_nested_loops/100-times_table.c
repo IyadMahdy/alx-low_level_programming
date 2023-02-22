@@ -15,13 +15,15 @@ void print_times_table(int n)
 		_putchar('\n');
 		return;
 	}
+	else if (n >= 100)
+		return;
 
 	for (i = 0; i <= n; i++)
 	{
 		for (j = 0; j <= n; j++)
 		{
 			num3 = (i * j) / 100;
-			num1 = (i * j) / 10;
+			num1 = ((i * j) / 10) % 10;
 			num2 = (i * j) % 10;
 
 			if (j == 0)
