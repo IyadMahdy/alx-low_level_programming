@@ -28,9 +28,9 @@ int _atoi(char *s)
 	for (k = i; k < (i + j); k++)
 	{
 		converted += (s[k] - 48);
-		converted *= 10;
+		if (k != (i + j - 1))
+			converted *= 10;
 	}
-	converted /= 10;
 
 	if (neg % 2 == 0)
 		return (converted);
