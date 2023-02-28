@@ -27,7 +27,7 @@ int _atoi(char *s)
 
 	for (k = i; k < (i + j); k++)
 	{
-		coverted += (s[k] - 48);
+		converted += (s[k] - 48);
 		converted *= 10;
 	}
 	converted /= 10;
