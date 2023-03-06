@@ -9,6 +9,7 @@
  */
 char *_strchr(char *s, char c)
 {
+	char *ptr;
 	int i;
 
 	i = 0;
@@ -19,10 +20,12 @@ char *_strchr(char *s, char c)
 
 	if (s[i] == c)
 	{
-		return (&s[i]);
+		ptr = &s[i];
 	}
 	else
 	{
-		return (NULL);
+		ptr = NULL;
 	}
+
+	return (ptr);
 }
