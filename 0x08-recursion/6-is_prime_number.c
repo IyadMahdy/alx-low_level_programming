@@ -14,7 +14,7 @@ int _prime(int num, int count)
 	if (num == count)
 		return (1);
 	if (num % count == 0)
-		return (0)
+		return (0);
 	return(_prime(num, count + 1));
 }
 /**
