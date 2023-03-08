@@ -15,7 +15,7 @@ int _prime(int num, int count)
 		return (1);
 	if (num % count == 0)
 		return (0);
-	return(_prime(num, count + 1));
+	return (_prime(num, count + 1));
 }
 /**
  * is_prime_number - Checks for prime number
