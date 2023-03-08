@@ -28,5 +28,5 @@ int _sqrt(int num, int root)
 	if (root * root == num)
 		return (root);
 	else
-		return (_sqrt(a, b + 1))
+		return (_sqrt(num, root + 1))
 }
