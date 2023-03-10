@@ -2,6 +2,11 @@
 #include <stdlib.h>
 
 /**
+ * main - Multiplies to Numbers from Arguments
+ *
+ * @argc: Argument count
+ * @argv: Arguments
+ * Return: Always 0
  */
 int main(int argc, char *argv[])
 {
