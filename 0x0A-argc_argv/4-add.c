@@ -10,12 +10,11 @@
  */
 int main(int argc, char *argv[])
 {
-	(void) argc;
 	int sum, count;
 
 	sum = 0;
 	count = 1;
-	while (argv[count])
+	while (count < argc)
 	{
 		if (atoi(argv[count]))
 			sum += atoi(argv[count]);
