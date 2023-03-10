@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.c>
+#include <stdlib.h>
 
 /**
  * main - Adds positive numbers from arguments
