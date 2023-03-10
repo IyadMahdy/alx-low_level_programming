@@ -6,12 +6,17 @@
  *
  * @argc: Argument Count
  * @argv: Arguments
- * Return: Always 0
+ * Return: Always 0 except if non digit in argument
  */
 int main(int argc, char *argv[])
 {
 	int sum, count;
 
+	if (argc == 1)
+	{
+		printf("0\n");
+		return (0);
+	}
 	sum = 0;
 	count = 1;
 	while (count < argc)
