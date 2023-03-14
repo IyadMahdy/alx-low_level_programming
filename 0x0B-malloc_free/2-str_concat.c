@@ -14,14 +14,20 @@ char *str_concat(char *s1, char *s2)
 	unsigned int size1, size2, i;
 
 	size1 = 0;
-	while (s1[size1] != '\0')
-	{
-		size1++;
-	}
 	size2 = 0;
-	while (s2[size2] != '\0')
+	if (s1 != NULL)
 	{
-		size2++;
+		while (s1[size1] != '\0')
+		{
+			size1++;
+		}
+	}
+	if (s2 != NULL)
+	{
+		while (s2[size2] != '\0')
+		{
+			size2++;
+		}
 	}
 
 	str = (char *) malloc((size1 + size2) * sizeof(char) + 1);
