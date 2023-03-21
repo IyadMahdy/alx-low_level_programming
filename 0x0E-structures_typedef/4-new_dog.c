@@ -1,58 +1,72 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "dog.h"
 
+int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 
 /**
- * new_dog - creates new dog
- *
- * @name: Name of new dog
- * @age: Age of new dog
- * @owner: Owner of new dog
- *
- * Return: Pointer to new dog
- */
+  * new_dog - ...
+  * @name: ...
+  * @age: ...
+  * @owner: ...
+  *
+  * Return: ...
+  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *d;
-	int name_l, owner_l;
+	dog_t *cutie_dog;
+	int name_l = 0, own_l = 0;
 
-	name_l = 0;
-	while (name[name_l] != '\0')
-		name_l++;
-
-	owner_l = 0;
-	while (owner[owner_l] != '\0')
-		owner_l++;
-
-	d = malloc(sizeof(dog_t));
-	if (d == NULL)
-		return (NULL);
-	d->name = malloc(sizeof(char) * name_l);
-
-	if (d->name == NULL)
+	if (name != NULL && owner != NULL)
 	{
-		free(d);
-		return (NULL);
+		name_l = _strlen(name) + 1;
+		own_l = _strlen(owner) + 1;
+		cutie_dog = malloc(sizeof(dog_t));
+
+		if (cutie_dog == NULL)
+			return (NULL);
+
+		cutie_dog->name = malloc(sizeof(char) * name_l);
+
+		if (cutie_dog->name == NULL)
+		{
+			free(cutie_dog);
+			return (NULL);
+		}
+
+		cutie_dog->owner = malloc(sizeof(char) * own_l);
+
+		if (cutie_dog->owner == NULL)
+		{
+			free(cutie_dog->name);
+			free(cutie_dog);
+			return (NULL);
+		}
+
+		cutie_dog->name = _strcpy(cutie_dog->name, name);
+		cutie_dog->owner = _strcpy(cutie_dog->owner, owner);
+		cutie_dog->age = age;
 	}
 
-	d->age = age;
+	return (cutie_dog);
+}
 
-	d->owner = malloc(sizeof(char) * owner_l);
+/**
+  * _strlen - Returns the length of a string
+  * @s: String to count
+  *
+  * Return: String length
+  */
+int _strlen(char *s)
+{
+	int c = 0;
 
-	if (d->owner == NULL)
+	for (; *s != '\0'; s++)
 	{
-		free(d->name);
-		free(d);
-		return (NULL);
+		c++;
 	}
 
-	d->name = _strcpy(d->name, name);
-	d->owner = _strcpy(d->owner, owner);
-	d->age = age;
-
-	return (d);
+	return (c);
 }
 
 /**
