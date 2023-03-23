@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "3-calc.h"
 
 /**
@@ -22,10 +20,10 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	i = 0;
-	while (op_s[i].op)
+	while (i < 5)
 	{
-		if (*(op_s[i].op) == *s)
-			return (op_s[i].f);
+		if (strcmp(s, ops[i].op) == 0)
+			return (*(op_s[i]).f);
 		i++;
 	}
 	return (NULL);
