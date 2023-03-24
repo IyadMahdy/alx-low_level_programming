@@ -1,6 +1,6 @@
 #include "variadic_functions.h"
 
-typdef struct format
+typedef struct format
 {
 	char op;
 	void (*f)(va_list all);
@@ -11,22 +11,25 @@ typdef struct format
  * @form: ...
  */
 void op_c(va_list form)
-	printf("%c", va_arg(form, char));
-
+{
+	printf("%c", va_arg(form, int));
+}
 /**
  * op_i - ...
  * @form: ...
  */
 void op_i(va_list form)
+{
 	printf("%d", va_arg(form, int));
-
+}
 /**
  * op_f - ...
  * @form: ...
  */
 void op_f(va_list form)
-	printf("%f", va_arg(form, float));
-
+{
+	printf("%f", va_arg(form, double));
+}
 /**
  * op_s - ...
  * @form: ...
@@ -41,7 +44,7 @@ void op_s(va_list form)
 		printf("(nil)");
 		return;
 	}
-	printf("%s", va_arg(form, char *));
+	printf("%s", str);
 }
 
 /**
