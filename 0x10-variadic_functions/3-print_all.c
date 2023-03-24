@@ -1,39 +1,45 @@
 #include "variadic_functions.h"
 
-typedef struct format
-{
-	char op;
-	void (*f)(va_list all);
-} f;
-
 /**
- * op_c - ...
- * @form: ...
+ * op_c - Print character .
+ * @form: name va_list
+ *
+ * Return: Nothing.
  */
+
 void op_c(va_list form)
 {
 	printf("%c", va_arg(form, int));
 }
 /**
- * op_i - ...
- * @form: ...
+ * op_i - Print Integer
+ * @form: name va_list
+ *
+ * Return: Nothing.
  */
+
 void op_i(va_list form)
 {
-	printf("%d", va_arg(form, int));
+	printf("%i", va_arg(form, int));
 }
 /**
- * op_f - ...
- * @form: ...
+ * op_f - print FLoat numbers
+ * @form: name of va_list
+ *
+ * Return: Nothing.
  */
+
 void op_f(va_list form)
 {
 	printf("%f", va_arg(form, double));
 }
 /**
- * op_s - ...
- * @form: ...
+ * op_s -print string
+ * @form: name va_list
+ *
+ * Return: Nothing.
  */
+
 void op_s(va_list form)
 {
 	char *str;
@@ -48,41 +54,45 @@ void op_s(va_list form)
 }
 
 /**
- * print_all - Prints Anything
+ * print_all - check the code for Holberton School students.
+ * @format: number of arguments in character format
  *
- * @format: list of types of arguments
+ * Return: Nothing.
  */
+
 void print_all(const char * const format, ...)
 {
+
+	va_list all;
 	unsigned int i, j;
-	va_list ptr;
+	char *separator = "";
 
 	f ops[] = {
-		{'c', op_c},
-		{'i', op_i},
-		{'f', op_f},
-		{'s', op_s}
-	};
+		{"c", op_c},
+		{"i", op_i},
+		{"f", op_f},
+		{"s", op_s},
+		};
 
-	va_start(ptr, format);
+	va_start(all, format);
 	i = 0;
 	while (format && format[i])
 	{
 		j = 0;
 		while (j < 4)
 		{
-			if (ops[j].op == (char) format[i])
+			if (ops[j].op[0] == format[i])
 			{
-				ops[j].f(ptr);
-				if (format[i + 1] != '\0')
-					printf(", ");
+				printf("%s", separator);
+				separator = ", ";
+				ops[j].f(all);
 				break;
 			}
 			j++;
 		}
-		i++;
+	i++;
 	}
 
 	printf("\n");
-	va_end(ptr);
+	va_end(all);
 }
