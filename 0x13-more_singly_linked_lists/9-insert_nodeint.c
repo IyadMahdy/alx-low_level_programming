@@ -1,5 +1,7 @@
 #include "lists.h"
 
+unsigned int list_length(listint_t *head);
+
 /**
  * insert_nodeint_at_index - inserts a new node at a given position
  *
@@ -16,7 +18,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	size_t len = 0;
 
 	node = malloc(sizeof(listint_t));
-	if (node == NULL || idx > list_len(*head))
+	if (node == NULL || idx > list_length(*head))
 	{
 		free(node);
 		return (NULL);
