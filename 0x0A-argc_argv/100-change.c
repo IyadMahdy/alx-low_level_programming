@@ -29,14 +29,14 @@ int main(int argc, char *argv[])
 	count += tmp;
 	cents -= tmp * 25;
 	tmp = cents / 10;
-        count += tmp;
-        cents -= tmp * 10;
+	count += tmp;
+	cents -= tmp * 10;
 	tmp = cents / 5;
-        count += tmp;
-        cents -= tmp * 5;
+	count += tmp;
+	cents -= tmp * 5;
 	tmp = cents / 2;
-        count += tmp;
-        cents -= tmp * 2;
+	count += tmp;
+	cents -= tmp * 2;
 	count += cents;
 
 	printf("%d\n", count);
