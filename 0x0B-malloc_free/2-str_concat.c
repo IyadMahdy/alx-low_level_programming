@@ -14,13 +14,13 @@ char *str_concat(char *s1, char *s2)
 	int one = 0, two = 0;
 
 	if (s1)
-	while (s1[one++])
-		;
+	while (s1[one])
+		++one;
 	else
 		s1 = "";
 	if (s2)
-	while (s2[two++])
-		;
+	while (s2[two])
+		++two;
 	else
 		s2 = "";
 
