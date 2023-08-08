@@ -1,90 +1,71 @@
 #include "main.h"
 
 /**
- * word_count - Gets Number of Words
- * @str: String
- *
- * Return: Number of Words
- */
-int word_count(char *str)
-{
-	int i = 0, word = 0;
-
-	while (str[i])
-	{
-		while (str[i] == 32)
-			i++;
-		if (!str[i])
-			break;
-		word++;
-	}
-	return (word);
-}
-
-/**
- * fill - Fills the array
+ * fill - Fills the array with words
  * @arr: Array
+ * @str: string to get words from
+ * @words: number of words
  *
- * Return: 0 if fail, 1 if success
+ * Return: 1 if succes, 0 if not
  */
-int fill(char **arr, char *str)
+int fill(char **arr, char *str, int words)
 {
-	char *w;
-	int i, j, c, count;
+	char *ptr = str;
+	int c;
 
-	for (i = 0, j = 0; str[i]; i++)
-	{
-		if (str[i] == 32)
-			i++;
-		else
+	do {
+		while (*ptr == ' ')
+			++ptr;
+		if (!*ptr)
+			break;
+		for (str = ptr++; *ptr && *ptr != ' '; ++ptr)
+			;
+		arr[words] = (char *) malloc(sizeof(char) * (ptr - str + 1));
+		if (!arr[words])
 		{
-			w = str;
-			c = 0;
-			count = 0;
-			for (; str[i] != 32 && str[i]; i++)
-				c++;
-			arr[j] = malloc((c + 1) * sizeof(char));
-			if (!arr[j])
-			{
-				for (; j > 0;)
-					free(arr[--j]);
-				free(arr);
-				return (0);
-			}
-			while (*w != 32 && *w)
-			{
-				arr[j][count] = *w;
-				w++;
-				count++;
-			}
-			arr[j][count] = '\0';
-			j++;
+			while (words >  0)
+				free(arr[--words]);
+			free(arr);
+			return (0);
 		}
-	}
+		for (c = 0; str < pos; ++c, ++str)
+			arr[words][c] = *str;
+		arr[words][c] = '\0';
+	} while (++words, *ptr);
+	arr[words] = NULL;
 	return (1);
 }
 
 /**
- * strtow - split a string into words
- * @str: a pointer to the string to split
+ * strtow - splits string into words
+ * @str: string
  *
- * Return: NULL if memory allocation fails or if str is NULL or empty (""),
- * otherwise return a pointer to the array of words terminated by a NULL
+ * Return: a pointer to arr of strings
  */
 char **strtow(char *str)
 {
 	char **arr;
-	int words;
+	char *ptr = str;
+	int words = 0;
 
-	if (str == NULL || *str == 0)
+	if (!(str && *str))
 		return (NULL);
-	words = word_count(str);
+	do {
+		while (*ptr == ' ')
+			++ptr;
+		if (!*ptr)
+			break;
+		while (*(++ptr) && *ptr != ' ')
+			;
+	} while (++words, *ptr);
+
 	if (!words)
 		return (NULL);
-	arr = (char **) malloc((words + 1) * sizeof(char *));
+	arr = (char **) malloc(sizeof(char *) * (w + 1));
 	if (!arr)
 		return (NULL);
-	if (fill(arr, str))
+
+	if (fill(arr, str, 0))
 		return (arr);
 	return (NULL);
 }
