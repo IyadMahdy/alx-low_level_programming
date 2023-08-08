@@ -74,10 +74,9 @@ int fill(char **arr, char *str)
 char **strtow(char *str)
 {
 	char **arr;
-	char *w;
-	int i, j, words, c, count;
+	int words;
 
-	if (str == NULL || str == "")
+	if (str == NULL || *str == 0)
 		return (NULL);
 	words = word_count(str);
 	if (!words)
