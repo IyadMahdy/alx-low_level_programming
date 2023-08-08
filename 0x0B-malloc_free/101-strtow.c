@@ -22,29 +22,16 @@ int word_count(char *str)
 }
 
 /**
- * strtow - split a string into words
- * @str: a pointer to the string to split
+ * fill - Fills the array
+ * @arr: Array
  *
- * Return: NULL if memory allocation fails or if str is NULL or empty (""),
- * otherwise return a pointer to the array of words terminated by a NULL
+ * Return: 0 if fail, 1 if success
  */
-char **strtow(char *str);
+int fill(char **arr)
 {
-	char **arr;
 	char *w;
-	int i, j, words, c, count;
+	int i, j, c, count;
 
-	if (str == NULL || str == "")
-		return (NULL);
-
-	words = word_count(str);
-	if (!words)
-		return (NULL);
-
-	arr = (char **) malloc((words + 1) * sizeof(char *));
-
-	if (!arr)
-		return (NULL);
 	for (i = 0, j = 0; str[i]; i++)
 	{
 		if (str[i] == 32)
@@ -62,7 +49,7 @@ char **strtow(char *str);
 				for (; j > 0;)
 					free(arr[--j]);
 				free(arr);
-				return (NULL);
+				return (0);
 			}
 			while (*w != 32 && *w)
 			{
@@ -74,5 +61,31 @@ char **strtow(char *str);
 			j++;
 		}
 	}
-	return (arr);
+	return (1);
+}
+
+/**
+ * strtow - split a string into words
+ * @str: a pointer to the string to split
+ *
+ * Return: NULL if memory allocation fails or if str is NULL or empty (""),
+ * otherwise return a pointer to the array of words terminated by a NULL
+ */
+char **strtow(char *str)
+{
+	char **arr;
+	char *w;
+	int i, j, words, c, count;
+
+	if (str == NULL || str == "")
+		return (NULL);
+	words = word_count(str);
+	if (!words)
+		return (NULL);
+	arr = (char **) malloc((words + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	if (fill(arr))
+		return (arr);
+	return (NULL);
 }
