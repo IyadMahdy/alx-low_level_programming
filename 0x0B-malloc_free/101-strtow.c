@@ -27,7 +27,7 @@ int word_count(char *str)
  *
  * Return: 0 if fail, 1 if success
  */
-int fill(char **arr)
+int fill(char **arr, char *str)
 {
 	char *w;
 	int i, j, c, count;
@@ -85,7 +85,7 @@ char **strtow(char *str)
 	arr = (char **) malloc((words + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
-	if (fill(arr))
+	if (fill(arr, str))
 		return (arr);
 	return (NULL);
 }
