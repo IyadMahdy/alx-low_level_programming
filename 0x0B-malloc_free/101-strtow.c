@@ -28,7 +28,7 @@ int fill(char **arr, char *str, int words)
 			free(arr);
 			return (0);
 		}
-		for (c = 0; str < pos; ++c, ++str)
+		for (c = 0; str < ptr; ++c, ++str)
 			arr[words][c] = *str;
 		arr[words][c] = '\0';
 	} while (++words, *ptr);
