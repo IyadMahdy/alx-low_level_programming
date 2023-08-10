@@ -1,6 +1,15 @@
 #include "main.h"
 
 /**
+ */
+unsigned int _min(unsigned int a, unsigned int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+/**
 * _realloc - reallocates a memory block
 * @ptr: pointer to the memory previously allocated with a call to malloc
 * @old_size: size of ptr
@@ -10,7 +19,7 @@
 */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	unsigned int min, i;
+	unsigned int mini, i;
 	void *new;
 
 	if (!ptr)
@@ -20,9 +29,9 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (NULL);
 		return (new);
 	}
-	if (old_size == new_size)
+	else if (old_size == new_size)
 		return (ptr);
-	if (!new_size && ptr)
+	else if (!new_size && ptr)
 	{
 		free(ptr);
 		return (NULL);
@@ -32,9 +41,9 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (!new)
 		return (NULL);
 
-	min = min(new_size, old_size);
-	for (i = 0; i < min; i++)
-		new[i] = ptr[i];
+	mini = _min(new_size, old_size);
+	for (i = 0; i < mini; i++)
+		((char *)new)[i] = ((char *)ptr)[i];
 	free(ptr);
 	return (new);
 }
