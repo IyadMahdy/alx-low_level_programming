@@ -1,6 +1,11 @@
 #include "main.h"
 
 /**
+ * _min - Gets Minimum
+ * @a: First
+ * @b: Second
+ *
+ * Return: MINIMUM
  */
 unsigned int _min(unsigned int a, unsigned int b)
 {
