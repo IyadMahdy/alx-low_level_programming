@@ -15,8 +15,6 @@ void cp(char *s, char *c)
 		s[i] = c[i];
 	i++;
 	s[i] = '\0';
-
-	return (s);
 }
 
 /**
