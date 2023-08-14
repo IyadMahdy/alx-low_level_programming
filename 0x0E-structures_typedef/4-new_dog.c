@@ -8,14 +8,14 @@
  *
  * Return: Nothing
  */
-void cp(char *s, char *c)
+char *cp(char *s, char *c)
 {
 	int i;
 
 	for (i = 0; c[i]; i++)
 		s[i] = c[i];
-	i++;
-	s[i] = '\0';
+	s[i++] = '\0';
+	return (s);
 }
 
 /**
@@ -26,10 +26,10 @@ void cp(char *s, char *c)
  */
 int _len(char *s)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s[i]; i++)
-		;
+	for (; *s; s++)
+		i++;
 	return (i);
 }
 
@@ -64,8 +64,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog);
 		return (NULL);
 	}
-	cp(new_dog->name, name);
-	cp(new_dog->owner, owner);
+	new_dog->name = cp(new_dog->name, name);
+	new_dog->owner = cp(new_dog->owner, owner);
 	new_dog->age = age;
 
 	return (new_dog);
