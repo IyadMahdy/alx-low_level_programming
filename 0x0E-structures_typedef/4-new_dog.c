@@ -1,4 +1,5 @@
 #include "dog.h"
+#include <stdlib.h>
 
 /**
  * cp - Copies string c into string s
@@ -42,30 +43,30 @@ int _len(char *s)
   */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new;
+	dog_t *new_dog;
 
 	if (!name || !owner)
 		return (NULL);
-	new = malloc(sizeof(dog_t));
-	if (!new)
+	new_dog = malloc(sizeof(dog_t));
+	if (!new_dog)
 		return (NULL);
 
-	new->name = malloc(sizeof(char) * (_len(name) + 1));
-	if (!new->name)
+	new_dog->name = malloc(sizeof(char) * (_len(name) + 1));
+	if (!new_dog->name)
 	{
-		free(new);
+		free(new_dog);
 		return (NULL);
 	}
-	new->owner = malloc(sizeof(char) * (_len(owner) + 1));
-	if (!new->owner)
+	new_dog->owner = malloc(sizeof(char) * (_len(owner) + 1));
+	if (!new_dog->owner)
 	{
-		free(new->name);
-		free(new);
+		free(new_dog->name);
+		free(new_dog);
 		return (NULL);
 	}
-	cp(new->name, name);
-	cp(new->owner, owner);
-	new->age = age;
+	cp(new_dog->name, name);
+	cp(new_dog->owner, owner);
+	new_dog->age = age;
 
-	return (new);
+	return (new_dog);
 }
