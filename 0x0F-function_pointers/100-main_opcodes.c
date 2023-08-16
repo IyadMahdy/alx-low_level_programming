@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < num_bytes - 1; i++)
 	{
-		printf("%x ", opcode[i] & 0xff);
+		printf("%02x ", opcode[i] & 0xff);
 	}
-	printf("%x\n", opcode[i] & 0xff);
+	printf("%02x\n", opcode[i] & 0xff);
 
 	return (0);
 }
