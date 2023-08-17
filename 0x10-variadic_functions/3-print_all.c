@@ -1,45 +1,92 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - Prints all
- * @format: Format
+ * print_char - ...
+ * @args: ...
+ *
+ * Return: ...
+ */
+void print_char(va_list args)
+{
+	printf("%c", va_arg(args, int));
+}
+
+/**
+ * print_int - ...
+ * @args: ...
+ *
+ * Return: ...
+ */
+void print_int(va_list args)
+{
+	printf("%d", va_arg(args, int));
+}
+
+/**
+ * print_float - ...
+ * @args: ...
+ *
+ * Return: ...
+ */
+void print_float(va_list args)
+{
+	printf("%f", va_arg(args, double));
+}
+
+/**
+ * print_str - ...
+ * @args: ...
+ *
+ * Return: ...
+ */
+void print_string(va_list args)
+{
+	char *str;
+
+	str = va_arg(args, char *);
+	if (!str)
+		str = "(nil)";
+	printf("%s", str);
+}
+
+/**
+ * print_all - ...
+ * @format: ...
+ *
+ * Return: ...
  */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	char *sep = ", ";
-	int i = 0, len = 0;
+	char *sep = "";
+	int i = 0;
 	char *str;
+
+	formatter f_list[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_str}
+	}
 
 	va_start(args, format);
 
-	while (format[len] && format)
-		len++;
-
-	while (format[i] && format)
+	while (format && format[i])
 	{
-		if (i == len - 1)
-			sep = "";
-		switch (format[i])
+		j = 0;
+		while (j <= 3)
 		{
-			case 'c':
-				printf("%c%s", va_arg(args, int), sep);
-				break;
-			case 'i':
-				printf("%d%s", va_arg(args, int), sep);
-				break;
-			case 'f':
-				printf("%f%s", va_arg(args, double), sep);
-				break;
-			case 's':
-				str = va_arg(args, char *);
-				if (!str)
-					str = "(nil)";
-				printf("%s%s", str, sep);
-				break;
+			if (format[i] == f_list.c)
+			{
+				printf("%s", sep);
+				f_list[j].f(args);
+				sep = ", ";
+			}
+			j++;
 		}
 		i++;
 	}
 	printf("\n");
+
 	va_end(args);
 }
