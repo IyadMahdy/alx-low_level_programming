@@ -5,6 +5,11 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+/**
+ * struct format_getter - ...
+ * @c: ...
+ * @f: ...
+ */
 typedef struct format_getter
 {
 	char c;
