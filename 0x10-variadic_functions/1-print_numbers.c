@@ -9,13 +9,15 @@
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	char *sep = (char *) separator;
+	char *sep;
 	unsigned int i;
 	va_list args;
 
 	va_start(args, n);
 	if (!separator)
 		sep = "";
+	else
+		sep = (char *) separator;
 
 	for (i = 0; i < n - 1; i++)
 	{
