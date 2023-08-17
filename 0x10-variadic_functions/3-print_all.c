@@ -59,15 +59,14 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	char *sep = "";
-	int i = 0;
-	char *str;
+	int i = 0, j;
 
 	formatter f_list[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
-		{'s', print_str}
-	}
+		{'s', print_string}
+	};
 
 	va_start(args, format);
 
@@ -76,7 +75,7 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (j <= 3)
 		{
-			if (format[i] == f_list.c)
+			if (format[i] == f_list[j].c)
 			{
 				printf("%s", sep);
 				f_list[j].f(args);
