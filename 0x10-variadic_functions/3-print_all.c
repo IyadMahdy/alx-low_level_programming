@@ -11,10 +11,10 @@ void print_all(const char * const format, ...)
 	int i, len = 0;
 	char *str;
 
-	while (format[len])
-		len++;
-
 	va_start(args, format);
+
+	while (format[len] && format)
+		len++;
 
 	i = 0;
 	while (format[i] && format)
