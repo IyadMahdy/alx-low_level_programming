@@ -8,7 +8,7 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	char *sep = ", ";
-	int i, len = 0;
+	int i = 0, len = 0;
 	char *str;
 
 	va_start(args, format);
@@ -16,7 +16,6 @@ void print_all(const char * const format, ...)
 	while (format[len] && format)
 		len++;
 
-	i = 0;
 	while (format[i] && format)
 	{
 		if (i == len - 1)
