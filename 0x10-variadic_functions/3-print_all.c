@@ -6,11 +6,14 @@
  */
 void print_all(const char * const format, ...)
 {
-	va_list = args;
-	char *sep = ", "
+	va_list args;
+	char *sep = ", ";
 	int i;
 	char *str;
 
+	va_start(args, format);
+
+	i = 0;
 	while (format[i] && format)
 	{
 		if (!format[i + 1])
