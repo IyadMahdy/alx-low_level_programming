@@ -11,21 +11,20 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *loop, *ptr;
 	unsigned int i = 0;
 
-	if (!(*h) || *h)
+	if (!(*h) || !(*h))
 		return (0);
 
 	loop = loop_finder(*h);
-	ptr = *h;
-	while (ptr != loop)
+	if (loop)
+		loop->next = NULL;
+
+	while (*h)
 	{
-		ptr = ptr->next;
-		if (!ptr)
-			break;
-		free(*h);
+		ptr = *h;
+		*h = (*h)->next;
+		free(ptr);
 		i++;
-		*h = ptr;
 	}
-	free(*h);
-	*h = NULL;
-	return (++i);
+
+	return (i);
 }
