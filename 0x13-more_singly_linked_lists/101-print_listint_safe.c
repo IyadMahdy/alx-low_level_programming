@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * find_loop - Finds a loop in a list
+ * loop_finder - Finds a loop in a list
  * @head: Head of list
  *
  * Return: Node where loop occurs
