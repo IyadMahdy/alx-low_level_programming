@@ -11,7 +11,7 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *loop, *ptr;
 	unsigned int i = 0;
 
-	if (!(*h))
+	if (!(*h) || *h)
 		return (0);
 
 	loop = loop_finder(*h);
