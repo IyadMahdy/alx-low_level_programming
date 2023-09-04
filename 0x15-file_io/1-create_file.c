@@ -9,7 +9,6 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	char *text;
 	int fp;
 
 	if (!filename)
@@ -20,7 +19,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	if (!text_content)
-		tect_content = "";
+		text_content = "";
 
 	write(fp, text_content, sizeof(text_content) - 1);
 
