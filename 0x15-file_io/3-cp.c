@@ -2,7 +2,7 @@
 
 /**
  * main - Copies from one file to another
- * @args: Argument count
+ * @argc: Argument count
  * @argv: Arguments
  *
  * Return: 0
@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
 	ff = open(argv[1], O_RDONLY);
 	if (ff == -1)
 	{
@@ -30,7 +29,6 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-
 	while (i == 1024)
 	{
 		i = read(ff, buffer, 1024);
@@ -46,17 +44,9 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 	}
-
 	if (close(ff) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ff), exit(100);
 	if (close(ft) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ft);
-		exit(100);
-	}
-
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ft), exit(100);
 	return (0);
 }
