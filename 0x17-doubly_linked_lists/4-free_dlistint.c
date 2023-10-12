@@ -6,9 +6,9 @@
  *
  * Return: Nothing
  */
-void free_dlistint(dlistint_d *head)
+void free_dlistint(dlistint_t *head)
 {
-	dlistint_d *ptr;
+	dlistint_t *ptr;
 
 	ptr = head->next;
 
