@@ -34,17 +34,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((unsigned char *)key, size);
 
-	if (strcmp(ht->array[index]->key, key) == 0)
+	if (!ht->array[index])
+		ht->array[index] = new_element;
+	else if (strcmp(ht->array[index]->key, key))
+	{
+		new_element->next = ht->array[index];
+		ht->array[index] = new_element;
+	}
+	else
 	{
 		free(ht->array[index]->value);
 		ht->array[index]->value = value2;
 		free(key2);
 		free(new_element);
-	}
-	else
-	{
-		new_element->next = ht->array[index];
-		ht->array[index] = new_element;
 	}
 
 	return (1);
