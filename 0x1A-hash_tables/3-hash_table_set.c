@@ -39,7 +39,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (strcmp(ht->array[index]->key, key) == 0)
 	{
 		free(ht->array[index]->value);
-		ht->array[index]->value = new_element->value;
+		ht->array[index]->value = strdup(new_element->value);
 		free(new_element->key);
 		free(new_element);
 	}
