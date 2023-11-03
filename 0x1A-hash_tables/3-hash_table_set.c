@@ -43,8 +43,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_element->key);
 		free(new_element);
 	}
-	new_element->next = ht->array[index];
-	ht->array[index] = new_element;
-
+	else
+	{
+		new_element->next = ht->array[index];
+		ht->array[index] = new_element;
+	}
 	return (1);
 }
